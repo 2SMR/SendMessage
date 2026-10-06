@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sendmessage_2.SendMessageActivity.Companion.TAG
+import com.example.sendmessage_2.model.Message
 
 /**
  * Actividad secundaria que muestra el mensaje recibido desde [SendMessageActivity].
@@ -30,11 +31,11 @@ class ViewMessageActivity : AppCompatActivity() {
 
         val tvMessage = findViewById<TextView>(R.id.textViewReceivedMessage)
 
-        // Recupera el texto pasado mediante Bundle
-        val message = intent.extras?.getString("KEY_MESSAGE")
+        // Recuperamos el objeto Message completo usando getSerializable
+        val message = intent.extras?.getSerializable("KEY_MESSAGE") as? Message
 
-        // Muestra el mensaje en el elemento de la interfaz
-        tvMessage.text = message
+        // Extraemos solo el texto del mensaje (content)
+        tvMessage.text = message?.content
     }
     //region Ciclo de Vida de una Actividad
     override fun onStart() {

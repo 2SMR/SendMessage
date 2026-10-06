@@ -1,11 +1,12 @@
 package com.example.sendmessage_2.model
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 /**
  * Clase de datos que representa a una persona dentro del sistema.
  *
- * Implementa [Serializable] para permitir el envío de sus instancias
+ * Implementa [Parcelable] para permitir el envío de sus instancias
  * entre componentes de Android a través de un [android.os.Bundle].
  *
  * @property dni Documento Nacional de Identidad o identificador único de la persona.
@@ -15,5 +16,9 @@ import java.io.Serializable
  * @author Carlos Nerí Campos Pérez
  * @version 1.0
  */
-data class Person (val dni:String, val name:String, val surname:String): Serializable {
-}
+@Parcelize
+data class Person(
+    val dni: String,
+    val name: String,
+    val surname: String
+) : Parcelable

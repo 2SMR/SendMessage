@@ -1,11 +1,12 @@
 package com.example.sendmessage_2.model
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 /**
  * Clase de datos que representa un mensaje enviado entre dos usuarios.
  *
- * Implementa [Serializable] para poder transmitir la información del mensaje
+ * Implementa [Parcelable] para poder transmitir la información del mensaje
  * y sus objetos embebidos ([Person]) entre actividades.
  *
  * @property id Identificador único del mensaje.
@@ -17,6 +18,10 @@ import java.io.Serializable
  * @version 1.0
  * @see Person
  */
-data class Message (val id:Int, val content:String, val sender:Person, val receiver:Person): Serializable{
-
-}
+@Parcelize
+data class Message(
+    val id: Int,
+    val content: String,
+    val sender: Person,
+    val receiver: Person
+) : Parcelable

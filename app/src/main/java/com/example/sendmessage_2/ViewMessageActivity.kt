@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sendmessage_2.SendMessageActivity.Companion.TAG
+import androidx.core.content.IntentCompat
 import com.example.sendmessage_2.model.Message
 
 /**
@@ -20,6 +20,7 @@ class ViewMessageActivity : AppCompatActivity() {
     companion object {
         const val TAG: String = "LogViewMessageActivity"
     }
+
     /**
      * Inicializa la pantalla y recupera los datos enviados en el Intent.
      *
@@ -31,12 +32,15 @@ class ViewMessageActivity : AppCompatActivity() {
 
         val tvMessage = findViewById<TextView>(R.id.textViewReceivedMessage)
 
-        // Recuperamos el objeto Message completo usando getSerializable
-        val message = intent.extras?.getSerializable("KEY_MESSAGE") as? Message
+        // Recuperamos el objeto Message usando IntentCompat para mayor compatibilidad (Android 13+)
+        val message = IntentCompat.getParcelableExtra(intent, "KEY_MESSAGE", Message::class.java)
 
-        // Extraemos solo el texto del mensaje (content)
-        tvMessage.text = message?.content
+        message?.let {
+            val senderName = "${it.sender.name} ${it.sender.surname}"
+            tvMessage.text = "De: $senderName\n\nMensaje:\n${it.content}"
+        }
     }
+
     //region Ciclo de Vida de una Actividad
     override fun onStart() {
         super.onStart()

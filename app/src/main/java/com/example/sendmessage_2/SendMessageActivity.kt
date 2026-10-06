@@ -63,11 +63,11 @@ class SendMessageActivity : AppCompatActivity() {
         val intent = Intent(this, ViewMessageActivity::class.java)
         // 2. Crear el bundle
         val bundle = Bundle()
-        val sender= Person("12345678A", "Carlos", "Campos")
+        val sender= Person("12345678A", "Carlos Neri", "Campos Perez")
         val receiver = Person("89089012Z", "Lourdes", "Rodriguez")
         val message = Message(1, editTextMessage.text.toString(), sender, receiver)
 
-        bundle.putSerializable("KEY_MESSAGE", message)
+        bundle.putParcelable("KEY_MESSAGE", message)
         intent.putExtras(bundle)
         startActivity(intent)
     }

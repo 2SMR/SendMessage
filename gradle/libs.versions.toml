@@ -11,6 +11,7 @@ constraintlayout = "2.1.4"
 navigationFragmentKtx = "2.6.0"
 navigationUiKtx = "2.6.0"
 dokka="2.0.0"
+parcelize="2.4.20"
 
 
 [libraries]
@@ -28,4 +29,5 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-dokka={id="org.jetbrains.dokka", version.ref="dokka"}
+kotlin-parcelize={id="org.jetbrains.kotlin.plugin.parcelize", version.ref="parcelize"}
 

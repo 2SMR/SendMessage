@@ -8,7 +8,7 @@ Aplicación Android nativa desarrollada en Kotlin que demuestra el intercambio s
 
 | Redacción del mensaje | Visualización del mensaje | Registros de Logcat |
 | :---: | :---: | :---: |
-| ![Pantalla Principal](foto1.png) | ![Pantalla Secundaria](foto2.png) | ![Verificación en Logcat](logca.png) |
+| ![Pantalla Principal](recursos/foto1.png) | ![Pantalla Secundaria](recursos/foto2.png) | ![Verificación en Logcat](recursos/logca.png) |
 
 ---
 
@@ -94,7 +94,3 @@ Se han configurado registros de trazabilidad mediante `Logcat` en ambas activida
 - [Guía de Intents y Filtros en Android](https://developer.android.com/guide/components/intents-filters?hl=es-419)
 - [Guía de Parcelable en Kotlin](https://developer.android.com/kotlin/parcelize)
 - [Documentación de Dokka](https://kotlinlang.org/docs/dokka-migration.html)
-
-![Captura 1](foto1.png)
-![Captura 2](foto2.png)
-![Captura 3](logca.png)
